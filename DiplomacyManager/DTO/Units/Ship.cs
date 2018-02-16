@@ -4,7 +4,8 @@ using System.Text;
 
 namespace DiplomacyManager.DTO
 {
-    class Ship : BaseUnit
+    public class Ship : BaseUnit
     {
+        public Ship(int strength, int cost, int range, int maxAmount, Player player, Province province) : base(strength, cost, range, maxAmount, player, province) { }
     }
 }

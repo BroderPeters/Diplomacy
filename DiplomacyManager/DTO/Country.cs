@@ -4,10 +4,22 @@ using System.Text;
 
 namespace DiplomacyManager.DTO
 {
-    class Country
+    public class Country
     {
-        public string Name { get; set; }
-        public List<Province> Provinces { get; set; }
-        public Player Player { get; set; }
+        public Country(string name, List<Province> provinces, Player player)
+        {
+            Name = name;
+            Provinces = provinces;
+            Player = player;
+        }
+
+        public string Name { get; private set; }
+        public List<Province> Provinces { get; private set; }
+        public Player Player { get; private set; }
+
+        internal void ChangePlayer(Player newPlayer)
+        {
+            Player = newPlayer;
+        }
     }
 }
