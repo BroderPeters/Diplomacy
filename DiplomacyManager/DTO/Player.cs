@@ -7,7 +7,9 @@ namespace DiplomacyManager.DTO
 {
     public class Player
     {
-        public Player(string name, int gold, bool isGameMaster, List<Province> provinces, List<Country> countries, List<BaseUnit> units)
+        private string _name;
+
+        public Player(string name, int gold, bool isGameMaster, List<Province> provinces, List<Country> countries, List<BaseUnit> units = null)
         {
             Name = name;
             Gold = gold;
@@ -17,7 +19,22 @@ namespace DiplomacyManager.DTO
             Units = units;
         }
 
-        public string Name { get; private set; }
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+
+            private set
+            {
+                if (value == null || value == "")
+                    throw new ArgumentNullException();
+                else
+                    _name = value;
+            }
+        }
+
         public int Gold { get; private set; }
         public bool IsGameMaster { get; private set; }
         public List<Province> Provinces { get; private set; }
