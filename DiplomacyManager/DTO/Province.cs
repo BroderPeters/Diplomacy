@@ -7,7 +7,9 @@ namespace DiplomacyManager.DTO
 {
     public class Province
     {
-        public Province(string name, bool isCapital, bool isWonderOfTheWorld, Country country, Player player, List<BaseUnit> units)
+        private string _name;
+
+        public Province(string name, bool isCapital, bool isWonderOfTheWorld, Country country, Player player = null, List<BaseUnit> units = null)
         {
             Name = name;
             IsCapital = isCapital;
@@ -17,12 +19,37 @@ namespace DiplomacyManager.DTO
             Units = units;
         }
 
-        public string Name { get; private set; }
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+
+            private set
+            {
+                if (value == null || value == "")
+                    throw new ArgumentNullException();
+                else
+                    _name = value;
+            }
+        }
+
         public bool IsCapital { get; private set; }
         public bool IsWonderOfTheWorld { get; private set; }
         public Country Country { get; private set; }
         public Player Player { get; private set; }
         public List<BaseUnit> Units { get; private set; }
+
+        internal void ChangeCountry(Country newCountry)
+        {
+            Country = newCountry;
+        }
+
+        internal void ChangePlayer(Player newPlayer)
+        {
+            Player = newPlayer;
+        }
 
         internal void AddUnits(List<BaseUnit> units)
         {
