@@ -1,15 +1,16 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace DiplomacyManager.DTO
 {
-    public class Country
+    public class Country : Neo4jObject
     {
         private string _name;
 
-        public Country(string name, List<Province> provinces, Player player = null)
+        public Country(string name, List<Province> provinces, Player player = null) : base(name)
         {
             Name = name;
             Provinces = provinces;
@@ -31,7 +32,9 @@ namespace DiplomacyManager.DTO
             }
         }
 
+        [JsonIgnore]
         public List<Province> Provinces { get; private set; }
+        [JsonIgnore]
         public Player Player { get; private set; }
 
         internal void ChangePlayer(Player newPlayer)

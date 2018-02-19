@@ -11,6 +11,13 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="2.0.0" />
 	<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.0" />
+	<PackageReference Include="Neo4jClient" Version="3.0.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="AppSettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   
 </Project>
