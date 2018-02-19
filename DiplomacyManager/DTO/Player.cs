@@ -1,15 +1,16 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
 namespace DiplomacyManager.DTO
 {
-    public class Player
+    public class Player : Neo4jObject
     {
         private string _name;
 
-        public Player(string name, int gold, bool isGameMaster, List<Province> provinces, List<Country> countries, List<BaseUnit> units = null)
+        public Player(string name, int gold, bool isGameMaster, List<Province> provinces, List<Country> countries, List<BaseUnit> units = null) : base(name)
         {
             Name = name;
             Gold = gold;
@@ -37,8 +38,11 @@ namespace DiplomacyManager.DTO
 
         public int Gold { get; private set; }
         public bool IsGameMaster { get; private set; }
+        [JsonIgnore]
         public List<Province> Provinces { get; private set; }
+        [JsonIgnore]
         public List<Country> Countries { get; private set; }
+        [JsonIgnore]
         public List<BaseUnit> Units { get; private set; }
 
         internal void ChangeGold(int value)

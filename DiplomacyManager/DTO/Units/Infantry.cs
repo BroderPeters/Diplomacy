@@ -6,6 +6,6 @@ namespace DiplomacyManager.DTO
 {
     public class Infantry : BaseUnit
     {
-        public Infantry(int strength, int cost, int range, int maxAmount, Player player, Province province) : base(strength, cost, range, maxAmount, player, province) { }
+        public Infantry(string name, int strength, int cost, int range, int maxAmount, Player player, Province province) : base(name, strength, cost, range, maxAmount, player, province) { }
     }
 }
