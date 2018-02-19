@@ -30,6 +30,10 @@ namespace DiplomacyManager.DTO
                 }
                 else
                 {
+                    if (value.Contains("-"))
+                    {
+                        value = value.Remove(value.IndexOf('-'), 1);
+                    }
                     _name = value;
                 }
             }
