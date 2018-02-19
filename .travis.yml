@@ -6,3 +6,6 @@ matrix:
     - dotnet: 2.1.4
       mono: none
     - mono: latest
+    
+notifications:
+  email: false
